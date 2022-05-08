@@ -16,7 +16,7 @@ const regSchema=new mongoose.Schema({
   full_name:String,
   email:String,
   phone:Number,
-  gender:String,q
+  gender:String,
   type:String,
   date:Date
 });
