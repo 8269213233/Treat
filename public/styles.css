@@ -333,8 +333,8 @@ p {
 /* Title Image */
 
 .title-image {
-  width: 70%;
-  height: 100%;
+  width: 50%;
+  height: 70%;
   border-radius: 50%;
   position: absolute;
   left: 22%;
