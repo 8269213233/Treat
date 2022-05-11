@@ -51,8 +51,7 @@
 <body onload="resetSelection()">
 
 
-
-<section class="colored-section" id="title">
+<section class="colored-section " id="title">
 
   <div class="container-fluid main-div">
 
@@ -71,7 +70,7 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="mailto:theyogeshv@gmail.com">Contact Us</a>
+            <a class="nav-link btn btn-lg btn-dark btn-block"  role="button" type="button" href="mailto:theyogeshv@gmail.com">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
@@ -86,7 +85,7 @@
 
 
 
-<form  action="/doctor/registered" method="post">
+<form  action="/search" method="post">
 
 <div class="reg-page">
   <div class="left-container">
@@ -117,88 +116,79 @@
       </div>
       <div class="prescription">
         <!-- <button id="prescription-button"></button> -->
+        <div class="prescription">
+          <!-- <button id="prescription-button"></button> -->
 
-<label for="state">&nbsp;Pick a State</label>
-    <select id="countrySelect" name="state" size="1" onchange="makeSubmenu(this.value)">
-<option value="" disabled selected>Choose State</option>
-<option value="Andhra Pradesh">Andhra Pradesh</option>
-<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-<option value="Assam">Assam</option>
-<option value="Bihar">Bihar</option>
-<option value="Chandigarh">Chandigarh</option>
-<option value="Chhattisgarh">Chhattisgarh</option>
-<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-<option value="Daman and Diu">Daman and Diu</option>
-<option value="Delhi">Delhi</option>
-<option value="Lakshadweep">Lakshadweep</option>
-<option value="Puducherry">Puducherry</option>
-<option value="Goa">Goa</option>
-<option value="Gujarat">Gujarat</option>
-<option value="Haryana">Haryana</option>
-<option value="Himachal Pradesh">Himachal Pradesh</option>
-<option value="Jammu and Kashmir">Jammu and Kashmir</option>
-<option value="Jharkhand">Jharkhand</option>
-<option value="Karnataka">Karnataka</option>
-<option value="Kerala">Kerala</option>
-<option value="Madhya Pradesh">Madhya Pradesh</option>
-<option value="Maharashtra">Maharashtra</option>
-<option value="Manipur">Manipur</option>
-<option value="Meghalaya">Meghalaya</option>
-<option value="Mizoram">Mizoram</option>
-<option value="Nagaland">Nagaland</option>
-<option value="Odisha">Odisha</option>
-<option value="Punjab">Punjab</option>
-<option value="Rajasthan">Rajasthan</option>
-<option value="Sikkim">Sikkim</option>
-<option value="Tamil Nadu">Tamil Nadu</option>
-<option value="Telangana">Telangana</option>
-<option value="Tripura">Tripura</option>
-<option value="Uttar Pradesh">Uttar Pradesh</option>
-<option value="Uttarakhand">Uttarakhand</option>
-<option value="West Bengal">West Bengal</option>
-</select>
-<label for="city">&nbsp;Pick a city</label>
-<select  class="sel" name="city" id="citySelect" size="1" >
-<option value="" disabled selected>Choose City</option>
-<option></option>
-</select>
+<label for="Type of doctor">&nbsp;Pick a state</label>
+          <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+  <option value="" disabled selected>Choose State</option>
+  <option value="Andhra Pradesh">Andhra Pradesh</option>
+  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+  <option value="Assam">Assam</option>
+  <option value="Bihar">Bihar</option>
+  <option value="Chandigarh">Chandigarh</option>
+  <option value="Chhattisgarh">Chhattisgarh</option>
+  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+  <option value="Daman and Diu">Daman and Diu</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Lakshadweep">Lakshadweep</option>
+  <option value="Puducherry">Puducherry</option>
+  <option value="Goa">Goa</option>
+  <option value="Gujarat">Gujarat</option>
+  <option value="Haryana">Haryana</option>
+  <option value="Himachal Pradesh">Himachal Pradesh</option>
+  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+  <option value="Jharkhand">Jharkhand</option>
+  <option value="Karnataka">Karnataka</option>
+  <option value="Kerala">Kerala</option>
+  <option value="Madhya Pradesh">Madhya Pradesh</option>
+  <option value="Maharashtra">Maharashtra</option>
+  <option value="Manipur">Manipur</option>
+  <option value="Meghalaya">Meghalaya</option>
+  <option value="Mizoram">Mizoram</option>
+  <option value="Nagaland">Nagaland</option>
+  <option value="Odisha">Odisha</option>
+  <option value="Punjab">Punjab</option>
+  <option value="Rajasthan">Rajasthan</option>
+  <option value="Sikkim">Sikkim</option>
+  <option value="Tamil Nadu">Tamil Nadu</option>
+  <option value="Telangana">Telangana</option>
+  <option value="Tripura">Tripura</option>
+  <option value="Uttar Pradesh">Uttar Pradesh</option>
+  <option value="Uttarakhand">Uttarakhand</option>
+  <option value="West Bengal">West Bengal</option>
+  </select>
+  <label for="city">&nbsp;Pick a city</label>
+  <select name="city"  class="sel" id="citySelect" size="1" >
+  <option value="" disabled selected>Choose City</option>
+  <option></option>
+  </select>
+        </div>
       </div>
     </div>
     <div class="set">
       <div class="phone">
-        <label for="experince">Experience:</label>
-        <input type="number" min="1" max="50" name="experience" id="Age" placeholder="experience" required>
+        <label for="Age">Age:</label>
+        <input type="number" name="age" id="Age" placeholder="age" required>
       </div>
-
-      <div class="prescription">
-        <!-- <button id="prescription-button"></button> -->
-        <label for="degree">&nbsp;Pick a degree</label>
-        <select class="sel" name="degree" >
-          <option>MBBS</option>
-          <option>MS</option>
-          <option>MD</option>
-          <option>BAMS</option>
-          <option>BHMS</option>
-          <option>BVS</option>
-          <option>BUMS</option>
-          <option>BSMS</option>
-          <option>BNYS</option>
-
-        </select>
+      <div class="gender">
+          <label for="gender">Gender:</label>
+          <div class="selection">
+              <input checked="" id="gender-female" name="gender" type="radio" value="female"/>
+              <label for="gender-female">Female</label>
+              <input id="gender-male" name="gender" type="radio" value="male" />
+              <label for="gender-male">Male</label>
+          </div>
       </div>
-
-      <div class="mobile">
-      <label  for="phone"> Contact:</label>
-<input type="tel" id="phone" name="phone" placeholder="Mobile no." pattern="+91[7-9]{2}-[0-9]{3}-[0-9]{4}" value="+91"required>
-</div>
 
     </div>
     <div class="set">
        </div>
 
+       <!-- submit button -->
        <div class="button">
-           <button id="apply" type="submit" name="button">Register</button>
+           <button id="apply" name="button">Search</button>
        </div>
      </div>
      <div class="right-container">
@@ -208,5 +198,4 @@
   </div>
 </form>
 
-</body>
-</html>
+<%- include("partials/footer.ejs")%>

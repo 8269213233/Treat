@@ -9,7 +9,20 @@ app.use(express.static('public'));
 
 const admin=mongoose.createConnection("mongodb://localhost:27017/logDB");
 const user=mongoose.createConnection("mongodb://localhost:27017/RegDB");
+const doctor =  mongoose.createConnection("mongodb://localhost:27017/DoctorDB");
 
+const doctorSchema = {
+     name: String,
+     email: String,
+     department: String,
+     state: String,
+     city: String,
+     experience: Number,
+     degree: String,
+     phone: String
+}
+
+const Doctor = doctor.model("Doctor",doctorSchema);
 
 
 const regSchema=new mongoose.Schema({
@@ -59,21 +72,62 @@ app.get("/login",function(req,res){
 app.get("/register",function(req,res){
   res.render("register");
 });
+app.get("/loginAdmin",function(req,res){
+    res.render("loginAdmin");
+});
+app.get("/registerAdmin",function(req,res){
+    res.render("registerAdmin");
+});
 app.get("/logout",function(req,res){
   res.render("home")
 });
-app.get("/signup",function(req,res){
-  res.render("silvercls")
-});
-app.get("/signupm",function(req,res){
-  res.render("goldcls")
-});
-app.get("/signupy",function(req,res){
-  res.render("diamondcls")
+
+app.get("/doctor",function(req,res){
+  res.render("doctor");
 });
 
+app.get("/patient",function(req,res){
+  res.render("patient");
+});
 
+app.post("/doctor/registered",function(req,res){
+  var mail = req.body.email;
+  Doctor.findOne({email:mail},function(err,result){
+    if(err)  console.log(err);
+    else{
+      if(result)
+         res.render("registered.ejs");
+      else{
+        const doc = new Doctor({
+          name : req.body.name,
+          email: req.body.email,
+          department: req.body.department,
+          state: req.body.state,
+          city: req.body.city,
+          experience: req.body.experience,
+          degree: req.body.degree,
+          phone: req.body.phone
+        });
+        doc.save(function(err){
+          if(err) console.log(err);
+          else res.send("<h3>You have successfully registerd as doctor</h3>");
+        })
 
+      }
+    }
+  })
+});
+
+app.post("/search",function(req,res){
+  const department = req.body.department;
+  const city = req.body.city;
+  Doctor.find({department:department,city:city},function(err,results){
+    if(err) console.log(err);
+    else{
+      res.render("show",{ListItems:results})
+    }
+  })
+})
 
 
 app.post("/register",function(req,res){
