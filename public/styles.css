@@ -428,3 +428,8 @@ p {
 .nav-buttons{
   margin-right: 10px;
 }
+
+.lead{
+  color:black;
+  font-weight: bold;
+}

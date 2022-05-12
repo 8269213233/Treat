@@ -73,7 +73,7 @@
             <a class="nav-link btn btn-lg btn-dark btn-block"  role="button" type="button" href="mailto:theyogeshv@gmail.com">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link btn btn-lg btn-dark btn-block" href="/logout">Logout</a>
           </li>
         </ul>
       </div>
@@ -120,7 +120,7 @@
           <!-- <button id="prescription-button"></button> -->
 
 <label for="Type of doctor">&nbsp;Pick a state</label>
-          <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+          <select id="countrySelect" size="1" required onchange="makeSubmenu(this.value)">
   <option value="" disabled selected>Choose State</option>
   <option value="Andhra Pradesh">Andhra Pradesh</option>
   <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -161,7 +161,7 @@
   </select>
   <label for="city">&nbsp;Pick a city</label>
   <select name="city"  class="sel" id="citySelect" size="1" >
-  <option value="" disabled selected>Choose City</option>
+  <option value="" disabled selected required>Choose City</option>
   <option></option>
   </select>
         </div>
@@ -170,7 +170,7 @@
     <div class="set">
       <div class="phone">
         <label for="Age">Age:</label>
-        <input type="number" name="age" id="Age" placeholder="age" required>
+        <input type="number" name="age" id="Age" placeholder="age"  min="1" max="100" required>
       </div>
       <div class="gender">
           <label for="gender">Gender:</label>
